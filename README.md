@@ -1,0 +1,1 @@
+04-10-2026 : scaffolding + one typed model, no AI/API code, no tests/logging yet
