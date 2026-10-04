@@ -36,11 +36,14 @@ if __name__ == "__main__":
     print(find_user(users, "1"))
     print(find_user(users, "9"))
 
-    # Wrong-typed calls: hints are not enforced at runtime
-    print(find_user(users, 1))  # int key: silently returns None, no error
+    # Wrong-typed calls: hints alone are not enforced at runtime
+    try:
+        find_user(users, 1)  # type: ignore[arg-type]
+    except TypeError as e:  # raised by our manual isinstance guard, not by the hint
+        print("TypeError:", e)
     try:
         word_count(123)  # type: ignore[arg-type]
-    except AttributeError as e:
-        print("AttributeError:", e)
+    except TypeError as e:
+        print("TypeError:", e)
 
     # A type hint is a promise to readers and tools (mypy, editor); Python itself never checks it.
