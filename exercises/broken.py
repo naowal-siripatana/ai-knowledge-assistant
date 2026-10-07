@@ -1,4 +1,4 @@
-from ai_knowledge_assistant.practice_types import word_count, find_user
+from practice_types import word_count, find_user
 
 # Intentional wrong-typed calls to demonstrate mypy
 
