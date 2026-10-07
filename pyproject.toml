@@ -20,3 +20,15 @@ exclude = ["exercises/broken.py"]   # wrong on purpose, see its docstring
 ignore_missing_imports = true
 check_untyped_defs = true
 warn_unused_ignores = true
+
+[dependency-groups]
+dev = [
+    "ruff>=0.16.10",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
