@@ -14,8 +14,9 @@ requires = ["uv_build>=0.12.23,<0.13.0"]
 build-backend = "uv_build"
 
 [tool.mypy]
-python_version = "3.11"
-files = "src"
+python_version = "3.12"
+files = ["src", "tests", "exercises"]
+exclude = ["exercises/broken.py"]   # wrong on purpose, see its docstring
 ignore_missing_imports = true
 check_untyped_defs = true
 warn_unused_ignores = true
