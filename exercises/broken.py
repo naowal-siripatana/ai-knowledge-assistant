@@ -1,10 +1,11 @@
-from practice_types import word_count, find_user
+"""Day 1 exercise: wrong-typed calls on purpose. Run mypy on it to see both mistakes.
 
-# Intentional wrong-typed calls to demonstrate mypy
+Python runs this without complaint, then fails inside word_count. mypy flags both
+calls before anything runs: uv run mypy exercises/broken.py
+"""
 
-def bad_calls() -> None:
-    word_count(123)         # error: Argument 1 to "word_count" has incompatible type "int"; expected "str"
-    find_user({"1": "Ann"}, 1)  # error: Argument 2 to "find_user" has incompatible type "int"; expected "str"
+from practice_types import find_user, word_count
 
-
-bad_calls()
+users = {"1": "Ann", "2": "Bob"}
+print(find_user(users, 1))
+print(word_count(123))
